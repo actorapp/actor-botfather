@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.3"
+    }
+}
+
+repositories {
+    maven {
+        url "https://oss.sonatype.org/content/repositories/releases"
+    }
+    jcenter()
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+group 'im.actor'
+mainClassName = "im.actor.bots.MainBotFarmKt"
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
+
+dependencies {
+    compile 'im.actor:actor-botkit:1.0.107'
+    compile 'im.actor:shardakka_2.11:0.1.16'
+    compile 'org.iq80.leveldb:leveldb:0.7'
+    compile 'org.fusesource.leveldbjni:leveldbjni-all:1.8'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.3"
+    runtime "org.jetbrains.kotlin:kotlin-reflect:1.0.3"
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.6.5-2'
+    compile 'org.apache.httpcomponents:httpclient:4.5.1'
+    compile 'org.json:json:20150729'
+    compile 'org.jdom:jdom2:2.0.6'
+    compile 'org.codemonkey.simplejavamail:simple-java-mail:2.4+'
+    compile 'com.rometools:rome:1.6.0'
+    compile 'org.jsoup:jsoup:1.9.1'
+
+    compile 'commons-io:commons-io:2.4'
+    compile 'commons-validator:commons-validator:1.4.1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
